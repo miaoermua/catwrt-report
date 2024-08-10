@@ -9,7 +9,7 @@ on:
       attachment_path:
         description: 'Path to logs.txt'
         required: true
-        default: '/www/logs.txt'
+        default: '/www/logs.txt'  # 默认路径设置为 /www/logs.txt
 
 jobs:
   send_email:
@@ -25,19 +25,19 @@ jobs:
     - name: Configure msmtp
       run: |
         echo "account default" > ~/.msmtprc
-        echo "host $SMTP_SERVER" >> ~/.msmtprc
-        echo "port $SMTP_PORT" >> ~/.msmtprc
+        echo "host ${{ secrets.SMTP_SERVER }}" >> ~/.msmtprc
+        echo "port ${{ secrets.SMTP_PORT }}" >> ~/.msmtprc
         echo "tls on" >> ~/.msmtprc
         echo "auth on" >> ~/.msmtprc
-        echo "user $EMAIL_USERNAME" >> ~/.msmtprc
-        echo "passwordeval echo $EMAIL_PASSWORD" >> ~/.msmtprc
-        echo "from $EMAIL_USERNAME" >> ~/.msmtprc
+        echo "user ${{ secrets.EMAIL_USERNAME }}" >> ~/.msmtprc
+        echo "passwordeval echo ${{ secrets.EMAIL_PASSWORD }}" >> ~/.msmtprc
+        echo "from ${{ secrets.EMAIL_USERNAME }}" >> ~/.msmtprc
         chmod 600 ~/.msmtprc
 
     - name: Send email with attachment
       run: |
         echo "Sending email with subject: ${{ github.event.inputs.subject }}"
-        msmtp $RECIPIENT_EMAIL < <(echo -e "Subject: ${{ github.event.inputs.subject }}\n\nPlease see the attached logs.\n") \
+        msmtp ${{ secrets.RECIPIENT_EMAIL }} < <(echo -e "Subject: ${{ github.event.inputs.subject }}\n\nPlease see the attached logs.\n") \
               -a ${{ github.event.inputs.attachment_path }}
       env:
         SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
