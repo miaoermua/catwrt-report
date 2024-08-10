@@ -9,7 +9,7 @@ on:
       attachment_path:
         description: 'Path to logs.txt'
         required: true
-        default: '/www/logs.txt'  # 默认路径设置为 /www/logs.txt
+        default: '/www/logs.txt'
 
 jobs:
   send_email:
@@ -37,8 +37,7 @@ jobs:
     - name: Send email with attachment
       run: |
         echo "Sending email with subject: ${{ github.event.inputs.subject }}"
-        msmtp ${{ secrets.RECIPIENT_EMAIL }} < <(echo -e "Subject: ${{ github.event.inputs.subject }}\n\nPlease see the attached logs.\n") \
-              -a ${{ github.event.inputs.attachment_path }}
+        echo "Please see the attached logs." | mailx -s "${{ github.event.inputs.subject }}" -a ${{ github.event.inputs.attachment_path }} ${{ secrets.RECIPIENT_EMAIL }}
       env:
         SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
         SMTP_PORT: ${{ secrets.SMTP_PORT }}
