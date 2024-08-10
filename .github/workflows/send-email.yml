@@ -24,29 +24,28 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get install -y msmtp-mta ca-certificates bsd-mailx
 
-  - name: Send email with attachment
-    run: |
-      echo "Sending email with subject: ${{ github.event.inputs.subject }}"
-      msmtp --host=$SMTP_SERVER \
-            --port=${SMTP_PORT:-587} \
-            --tls=on \
-            --auth=on \
-            --user=$EMAIL_USERNAME \
-            --passwordeval="echo $EMAIL_PASSWORD" \
-            --from=$EMAIL_USERNAME \
-            $RECIPIENT_EMAIL < <(echo -e "Subject: ${{ github.event.inputs.subject }}\n\nPlease see the attached logs.\n") \
-            -a ${{ github.event.inputs.attachment_path }}
-  env:
-    SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-    SMTP_PORT: ${{ secrets.SMTP_PORT }}
-    EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
-    EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-    RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+    - name: Debug environment variables
+      run: |
+        echo "SMTP_SERVER: $SMTP_SERVER"
+        echo "SMTP_PORT: $SMTP_PORT"
+        echo "EMAIL_USERNAME: $EMAIL_USERNAME"
+        echo "RECIPIENT_EMAIL: $RECIPIENT_EMAIL"
 
-
-    env:
-      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-      SMTP_PORT: ${{ secrets.SMTP_PORT }}
-      EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
-      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-      RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+    - name: Send email with attachment
+      run: |
+        echo "Sending email with subject: ${{ github.event.inputs.subject }}"
+        msmtp --host=$SMTP_SERVER \
+              --port=${SMTP_PORT:-587} \
+              --tls=on \
+              --auth=on \
+              --user=$EMAIL_USERNAME \
+              --passwordeval="echo $EMAIL_PASSWORD" \
+              --from=$EMAIL_USERNAME \
+              $RECIPIENT_EMAIL < <(echo -e "Subject: ${{ github.event.inputs.subject }}\n\nPlease see the attached logs.\n") \
+              -a ${{ github.event.inputs.attachment_path }}
+      env:
+        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+        SMTP_PORT: ${{ secrets.SMTP_PORT }}
+        EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
