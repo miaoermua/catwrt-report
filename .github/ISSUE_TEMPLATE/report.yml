@@ -29,9 +29,9 @@ body:
   - type: input
     id: reproduction
     attributes:
-      label: Reproduction
+      label: 你的设备
       description: A minimal reproduction of screen recording.
-      placeholder: Reproduction
+      placeholder: QEMU Standard PC (Q35 + ICH9 - AMD Ryzen 5 1600 Six-Core Processor : 3C6T
     validations:
       required: true
   
