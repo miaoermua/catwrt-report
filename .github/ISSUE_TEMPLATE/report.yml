@@ -31,8 +31,7 @@ body:
     attributes:
       label: 你的设备
       description: 填写你遇到问题的设备名字
-      placeholder: QEMU Standard PC AMD Ryzen 5 1600 Six-Core Processor |
-      & Xiaomi Redmi AX6000
+      placeholder: QEMU Standard PC AMD Ryzen 5 1600 Six-Core Processor
     validations:
       required: true
   
