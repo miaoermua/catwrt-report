@@ -15,8 +15,8 @@ body:
         请在 CatWrt 终端上执行 `cattools` & `/usr/bin/cattools` 工具箱，选择 Debug 以收集本次问题的日志. |
         使用指南: <https://www.miaoer.xyz/posts/blog/cattools#Debug%20-%20%E6%8A%93%E5%8F%96%E6%97%A5%E5%BF%97>
       placeholder: |
-        ## 填写你在设备上采集到的日志信息，不一定是 Cattools
-        ## 收集的因为太长了，你可能需要在提交该问题后在评论下追加日志文件.
+        ## 采集到的日志信息不一定是 Cattools 提供的，可以节选生成的文件部分可疑问题的部分粘贴到此.
+        ## 收集的日志太长了需要在提交该问题后在此 issue 下追加日志文件!
       render: markdown
 
   - type: textarea
