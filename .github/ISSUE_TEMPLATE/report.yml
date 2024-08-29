@@ -1,23 +1,21 @@
-name: 🚀 New feature proposal
-description: Propose a new feature
-labels: [enhancement]
+name: 🛟 提交遇到的问题
+description: 提交使用 CatWrt 遇到的问题，需要帮助或者让我们改进
+labels: [bug]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for your interest in the project and taking the time to fill out this feature report!
+        首先非常感谢你的反馈，帮助到了 CatWrt 社区排查问题，所有的努力都是值得的!
 
   - type: textarea
     id: feature_description
     attributes:
       label: Feature Description
       description: |
-        Provide a detailed description of the proposed feature. You can use Markdown syntax to format your text.
+        请在 CatWrt 终端上执行 cattools 工具箱，选择 Debug 以收集本次问题的日志. |
+        https://www.miaoer.xyz/posts/blog/cattools#Debug%20-%20%E6%8A%93%E5%8F%96%E6%97%A5%E5%BF%97
       placeholder: |
-        ## Feature Title
-        - **Motivation**: Why do you want this feature?
-        - **Description**: What does this feature do?
-        - **Alternatives**: Are there any alternative solutions or features you've considered?
+        ## 填写你在设备上的日志信息
       render: markdown
 
   - type: textarea
