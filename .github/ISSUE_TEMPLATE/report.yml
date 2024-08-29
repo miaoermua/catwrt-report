@@ -61,7 +61,9 @@ body:
       label: Validations
       description: Before submitting the issue, please make sure you do the following
       options:
-        - label: 我已确认我的内容反馈内容的正确
-          required: true
         - label: 我确认我的 BUG 来自 CatWrt，而不是别的 OpenWrt 固件
+          required: true
+        - label: 我将遵守 CatWrt 开源社区规范，不将设备为商业目的
+          required: true
+        - label: 我已确认我的内容反馈内容的正确
           required: true
