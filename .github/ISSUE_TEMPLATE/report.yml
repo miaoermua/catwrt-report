@@ -2,29 +2,6 @@ name: 🚀 New feature proposal
 description: Propose a new feature
 labels: [enhancement]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for your interest in the project and taking the time to fill out this feature report! 
-
-  - type: input
-    id: prevalence
-    attributes:
-      label: Bug prevalence
-      description: "How often do you or others encounter this bug?"
-      placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
-    validations:
-      required: true
-
-  - type: input
-    id: prevalence
-    attributes:
-      label: Bug prevalence
-      description: "How often do you or others encounter this bug?"
-      placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
-    validations:
-      required: true
-
 
 
   - type: checkboxes
