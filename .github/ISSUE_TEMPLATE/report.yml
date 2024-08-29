@@ -10,7 +10,7 @@ body:
   - type: textarea
     id: feature_description
     attributes:
-      label: Feature Description
+      label: 提供 BUG 问题日志
       description: |
         请在 CatWrt 终端上执行 cattools 工具箱，选择 Debug 以收集本次问题的日志. |
         https://www.miaoer.xyz/posts/blog/cattools#Debug%20-%20%E6%8A%93%E5%8F%96%E6%97%A5%E5%BF%97
@@ -21,8 +21,8 @@ body:
   - type: textarea
     id: prevalence
     attributes:
-      label: Bug prevalence
-      description: "How often do you or others encounter this bug?"
+      label: 问题 BUG 描述
+      description: "你是怎么发现 BUG 的，是什么模块/插件/系统导致的问题，具体情况描述，持续时间"
       placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
 
   - type: input
