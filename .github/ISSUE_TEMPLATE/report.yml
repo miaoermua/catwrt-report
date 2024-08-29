@@ -45,3 +45,14 @@ body:
         - 能复现
         - 不能复现
         - 偶尔能复现
+
+- type: checkboxes
+  id: code_of_conduct
+  attributes:
+    label: Code of Conduct
+    description: |
+      The Code of Conduct helps create a safe space for everyone. 
+      Please agree to the following before submitting your issue:
+    options:
+      - label: 我已确认我的内容反馈内容的正确
+      - label: 我确认我的 BUG 来自 CatWrt，而不是别的 OpenWrt 固件
