@@ -12,36 +12,53 @@ body:
     attributes:
       label: 提供 BUG 问题日志
       description: |
-        请在 CatWrt 终端上执行 cattools 工具箱，选择 Debug 以收集本次问题的日志. |
-        https://www.miaoer.xyz/posts/blog/cattools#Debug%20-%20%E6%8A%93%E5%8F%96%E6%97%A5%E5%BF%97
+        请在 CatWrt 终端上执行 `cattools` & `/usr/bin/cattools` 工具箱，选择 Debug 以收集本次问题的日志. |
+        使用指南: <https://www.miaoer.xyz/posts/blog/cattools#Debug%20-%20%E6%8A%93%E5%8F%96%E6%97%A5%E5%BF%97>
       placeholder: |
-        ## 填写你在设备上的日志信息
+        ## 填写你在设备上采集到的日志信息，不一定是 Cattools
+        ## 收集的因为太长了，你可能需要在提交该问题后在评论下追加日志文件.
       render: markdown
 
   - type: textarea
     id: prevalence
     attributes:
       label: 问题 BUG 描述
-      description: "你是怎么发现 BUG 的，是什么模块/插件/系统导致的问题，具体情况描述，持续时间"
-      placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
+      description: "你是怎么发现 BUG 的，是什么 插件/模块/系统组件 导致的问题，具体情况描述，以及持续时间"
+      placeholder: "How did you discover the bug? What plugin/module/system component caused the problem? A detailed description of the situation and how long it lasted"
 
   - type: input
     id: reproduction
     attributes:
-      label: Reproduction
-      description: A minimal reproduction of screen recording.
-      placeholder: Reproduction
+      label: 你的设备
+      description: 填写你遇到问题的设备名字
+      placeholder: QEMU Standard PC (Q35 + ICH9 - AMD Ryzen 5 1600 Six-Core Processor : 3C6T
     validations:
       required: true
   
   - type: dropdown
-    id: software_version
+    id: catwrt_version
     attributes:
       label: Version
       description: What version of our software are you running?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - v24.9 (AMD64 & mt7621)
+        - v24.3 (mt798x)
+        - v24.1 (Rock64)
+        - v23.8 (AMD64 & mt798x)
+        - v23.5 (AMD64)
+        - v23.2 (AMD64 & mt798x & Rock64)
+        - v22.12 (AMD64 & mt798x & mt7621 & Rock64)
+
+  - type: dropdown
+    id: catwrt_arch
+    attributes:
+      label: Arch
+      description: 设备运行的 CatWrt 芯片架构平台
+      options:
+        - AMD64 (x86_64)
+        - Rock64 (Arm64)
+        - mt7621
+        - mt798x
 
   - type: dropdown
     id: bug_reproducible
@@ -56,7 +73,7 @@ body:
   - type: checkboxes
     id: checkboxes
     attributes:
-      label: Validations
+      label: 确认
       description: Before submitting the issue, please make sure you do the following
       options:
         - label: 我确认我的 BUG 来自 CatWrt，而不是别的 OpenWrt 固件
