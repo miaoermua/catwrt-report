@@ -41,7 +41,7 @@ body:
     validations:
       required: true
 
-  - type: single-select
+  - type: select
     id: bug_reproducible
     attributes:
       label: BUG 能不能复现
