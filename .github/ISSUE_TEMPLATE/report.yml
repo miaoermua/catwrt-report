@@ -41,6 +41,23 @@ body:
     validations:
       required: true
 
+  - type: file
+    id: log_files
+    attributes:
+      label: 上传日志文件
+      description: 如果有相关的日志文件，请上传以帮助我们更好地排查问题。
+      multiple: true
+
+  - type: single-select
+    id: bug_reproducible
+    attributes:
+      label: BUG 能不能复现
+      description: 请选择 BUG 是否能复现
+      options:
+        - 能复现
+        - 不能复现
+        - 偶尔能复现
+
   - type: checkboxes
     id: checkboxes
     attributes:
