@@ -6,6 +6,19 @@ body:
     attributes:
       value: |
         Thanks for your interest in the project and taking the time to fill out this feature report! 
+        
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Feature Description
+      description: |
+        Provide a detailed description of the proposed feature. You can use Markdown syntax to format your text.
+      placeholder: |
+        ## Feature Title
+        - **Motivation**: Why do you want this feature?
+        - **Description**: What does this feature do?
+        - **Alternatives**: Are there any alternative solutions or features you've considered?
+      render: markdown
 
   - type: input
     id: prevalence
