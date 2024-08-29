@@ -36,13 +36,6 @@ body:
         - 1.0.2 (Default)
         - 1.0.3 (Edge)
 
-  - type: file
-    id: log_files
-    attributes:
-      label: 上传日志文件
-      description: 如果有相关的日志文件，请上传以帮助我们更好地排查问题。
-      multiple: true
-
   - type: dropdown
     id: bug_reproducible
     attributes:
