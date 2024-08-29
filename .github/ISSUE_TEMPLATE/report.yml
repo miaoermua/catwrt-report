@@ -26,6 +26,15 @@ body:
       label: Bug prevalence
       description: "How often do you or others encounter this bug?"
       placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
+
+  - type: input
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: A minimal reproduction of screen recording.
+      placeholder: Reproduction
+    validations:
+      required: true
   
   - type: dropdown
     id: software_version
