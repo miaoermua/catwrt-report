@@ -38,8 +38,8 @@ body:
   - type: dropdown
     id: catwrt_version
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: CatWrt_Version
+      description: 你当前运行的 CatWrt 版本号
       options:
         - v24.9 (AMD64 & mt7621)
         - v24.3 (mt798x)
@@ -52,7 +52,7 @@ body:
   - type: dropdown
     id: catwrt_arch
     attributes:
-      label: Arch
+      label: CatWrt_Arch
       description: 设备运行的 CatWrt 芯片架构平台
       options:
         - AMD64 (x86_64)
